@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/slate/bulmaswatch.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Escrow Service</title>
+  </head>
+  <body>
+  <section class="section">
+    <div class="container is-fluid">
+      <h1 class="title">
+        Admin Panel
+      </h1>
+      <div class="columns">
+	  <div class="column is-one-fifth">
+            <aside class="menu">
+                <p class="menu-label">
+                        Menu
+                </p>
+                <ul class="menu-list">
+                    <li><a href="/admin">Escrow</a></li>
+                    <li><a href="/admin/settings/">Settings</a></li>
+                </ul>
+
+            </aside>
+      </div>
+      <div class="columns is-multiline">
+            <div class="column">
+                <article class="message">
+                  Here you can change your username and password for the admin panel:
+                  </article>
+                <form action="/admin/settings/change" method="post" id="form1">
+
+                <div class="field">
+                    <p class="control">
+                      <input class="input" type="username" placeholder="New Username" name="uname">
+                    </p>
+                  </div>
+                  <div class="field">
+                    <p class="control">
+                      <input class="input" type="password" placeholder="New Password"  name="pwd">
+                    </p>
+                  </div>
+                  <div class="field">
+                    <p class="control">
+                      <button class="button is-success">
+                        Change data
+                      </button>
+                    </p>
+                  </div>
+                </form>
+              </div>
+                <div class="column">
+
+                <article class="message">
+                    Here you can change your UID and password for blockchain.info:
+                    </article>
+                <form action="/admin/settings/change" method="post" id="form2">
+
+                  <div class="field">
+                      <p class="control">
+                        <input class="input" type="username" placeholder="{{.BlockchainUser}}" name="buname">
+                      </p>
+                    </div>
+                    <div class="field">
+                      <p class="control">
+                        <input class="input" type="password" placeholder="{{.BlockchainPassword}}"  name="bpwd">
+                      </p>
+                    </div>
+                    <article class="message">
+                        Here you can change your fees multiple. Current Data is: {{.Multi}}
+                        </article>
+                    <div class="field">
+                        <p class="control">
+                          <input class="input" type="username" placeholder="{{.Multi}}"  name="multi">
+                        </p>
+                      </div>
+                    <div class="field">
+                      <p class="control">
+                        <button class="button is-success">
+                          Change data
+                        </button>
+                      </p>
+                    </div>
+                  </form>
+          </div>
+    </div>
+  </section>
+  </body>
+</html>

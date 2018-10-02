@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/slate/bulmaswatch.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Escrow Service</title>
+  </head>
+  <body>
+  <section class="section">
+    <div class="container is-fluid">
+      <h1 class="title">
+        Escrow Service
+      </h1>
+      <img src="/logo.png" alt="" style="width:auto;">
+
+      <p class="subtitle">
+        Powered by <strong>blockchain.info</strong>!
+      </p>
+	  <div class="columns">
+  <div class="column is-two-thirds">
+      <div class="notification is-danger">
+        Please make sure that all information is correct and as requested. Take some extra time,
+        to compare the Bitcoin address with yours if you copied and pasted the address, because there is malware that changes the data in the clipboard.
+          </div>
+    <div class="notification is-info">
+    <p>Bitcoin amount: <strong>{{ .BETRAG}}</strong> </p>
+    <p>Bitcoin Adresse des payment recipients:  <strong>{{ .ADRESS}}</strong></p>
+    <p>Payment recipient: <strong>{{ .EMPF}}</strong> </p>
+    <p>Debtor: <strong>{{ .ZAHL}}</strong> </p>
+    <p>Terms and conditions: <strong>{{ .CO}}</strong> </p>
+  </div>
+
+  <form action="/gen/final" method="POST">
+    <input type="hidden" name="betrag" value="{{ .BETRAG}}">
+    <input type="hidden" name="adress" value="{{ .ADRESS}}">
+    <input type="hidden" name="empf" value="{{ .EMPF}}">
+    <input type="hidden" name="zahl" value="{{ .ZAHL}}">
+    <input type="hidden" name="co" value="{{ .CO}}">
+<div class="field is-horizontal">
+    <div class="field-label">
+      <!-- Left empty for spacing -->
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <button class="button is-success">
+            Confirm data
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+    </div>
+  </section>
+  </body>
+</html>

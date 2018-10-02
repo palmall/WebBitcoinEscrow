@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/slate/bulmaswatch.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Escrow Service</title>
+  </head>
+  <body>
+  <section class="section">
+    <div class="container is-fluid">
+      <h1 class="title">
+        Escrow Service
+      </h1>
+    
+      <img src="/logo.png" alt="" style="width:auto;">
+      <p class="subtitle">
+        Powered by <strong>blockchain.info</strong>!
+      </p>
+
+	  <div class="columns">
+  <div class="column is-two-thirds">
+<form action="/gen" method="POST" id="usrform">
+  
+<div class="notification">
+  Please specify <strong>how much Bitcoin</strong> should be stored in escrow. 
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label">Amount</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <p class="control is-expanded has-icons-left has-icons-right">
+        <input class="input {{ .FORM1_WARN_d}}" type="text" value="{{ .FORM1_WARN_d_v}}" placeholder="0.00" name="betrag" >
+        <span class="icon is-small is-left">
+          <i class="fab fa-bitcoin"></i>
+        </span>
+        <span class="icon is-small is-right">
+            <i class="{{ .FORM1_WARN_ca}}"></i>
+        </span>
+      </p>
+	  <p class="help is-danger">{{ .FORM1_WARN}}</p>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="notification">
+  Please enter <strong>your Bitcoin Address</strong> to receive money from the deptor.
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label">Bitcoin Address</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <p class="control is-expanded has-icons-left has-icons-right">
+        <input class="input {{ .FORM2_WARN_d}}" type="text"  value="{{ .FORM2_WARN_d_v}}" placeholder="1P82rBjJMDFSay2RqKx1bydDRVh5QnGkkZ" name="adress" >
+        <span class="icon is-small is-left">
+          <i class="fab fa-bitcoin"></i>
+        </span>
+        <span class="icon is-small is-right">
+            <i class="{{ .FORM2_WARN_ca}}"></i>
+        </span>
+      </p>
+	  <p class="help is-danger">{{ .FORM2_WARN}}</p>
+    </div>
+  </div>
+</div>
+
+<div class="notification">
+  Please enter the username of the payment recipient (you) and the payer.
+</div>
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label">Username</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <p class="control is-expanded has-icons-left has-icons-right">
+        <input class="input {{ .FORM3_WARN_d}}" type="text"  value="{{ .FORM3_WARN_d_v}}" placeholder="payment recipient" name="empf" >
+        <span class="icon is-small is-left">
+          <i class="fas fa-user"></i>
+        </span>
+        <span class="icon is-small is-right">
+            <i class="{{ .FORM3_WARN_ca}}"></i>
+        </span>
+      </p>
+      <p class="help is-danger">{{ .FORM3_WARN}}</p>
+    </div>
+    <div class="field">
+      <p class="control is-expanded has-icons-left has-icons-right">
+        <input class="input {{ .FORM4_WARN_d}}" type="text"   value="{{ .FORM4_WARN_d_v}}" placeholder="debtor" name="zahl" >
+
+        <span class="icon is-small is-left">
+          <i class="fas fa-user"></i>
+        </span>
+        <span class="icon is-small is-right">
+            <i class="{{ .FORM4_WARN_ca}}"></i>
+        </span>
+      </p>
+      <p class="help is-danger">{{ .FORM4_WARN}}</p>
+    </div>
+  </div>
+</div>
+<div class="notification">
+  Please indicate the conditions under which this escrow will take place.</div>
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label">Terms and conditions</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+        <textarea name="comment" form="usrform"  value="{{ .FORM5_WARN_d_v}}" class="textarea {{ .FORM5_WARN_d}}" placeholder="What requirements must be met in order to meet the terms and conditions of trading? "></textarea>
+        <p class="help is-danger">{{ .FORM5_WARN}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label">
+    <!-- Left empty for spacing -->
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+        <button class="button is-primary">
+          Create Escrow
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+  
+  </form>
+
+  </section>
+  </body>
+</html>

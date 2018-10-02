@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/slate/bulmaswatch.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Escrow Service</title>
+  </head>
+  <body>
+  <section class="section">
+    <div class="container is-fluid">
+      <h1 class="title">
+        Escrow Service
+      </h1>
+      <img src="/logo.png" alt="" style="width:auto;">
+
+      <p class="subtitle">
+        Powered by <strong>blockchain.info</strong>!
+      </p>
+	  <div class="columns">
+  <div class="column is-two-thirds">
+      <div class="notification">In the transaction panel, all important information, such as whether the amount has been deposited,
+        can be viewed. Please note the link and send it to the payer.  </div>
+      <div class="notification is-link">URL Transaction Panel: <a href="{{ .TRANSURL}}">{{ .TRANSURL}}</a>  </div>
+      <div class="notification">Please send the link to the payer so that he can create a secret link to the release.
+        The link is only intended for the payer and can only be accessed once.  </div>
+      <div class="notification is-info">  URL for Debtor: <a>{{ .ZAHLURL}}</a></div>
+  </div>
+
+<div class="field is-horizontal">
+  </div>
+</form>
+    </div>
+  </section>
+  </body>
+</html>

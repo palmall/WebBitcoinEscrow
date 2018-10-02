@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	  <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/slate/bulmaswatch.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Escrow Service</title>
+  </head>
+  <body>
+  <section class="section">
+    <div class="container is-fluid">
+      <h1 class="title">
+        Admin Panel
+      </h1>
+      <div class="columns">
+	  <div class="column is-one-fifth">
+            <aside class="menu">
+                <p class="menu-label">
+                        Menu
+                </p>
+                <ul class="menu-list">
+                    <li><a href="/admin">Escrow</a></li>
+                    <li><a href="/admin/settings/">Settings</a></li>
+                </ul>
+
+            </aside>
+      </div>
+      <div class="columns is-multiline">
+            <div class="column is-four-fifths-fullhd">
+            <table class="table is-bordered is-striped is-hoverable is-narrow">
+                    <thead>
+                      <tr>
+                        <th><abbr>Transactions</abbr></th>
+                        <th>Status</th>
+                        <th><abbr>Payment recipient</abbr></th>
+                        <th><abbr>BTC address recipient</abbr></th>
+                        <th><abbr>Debtor</abbr></th>
+                        <th><abbr>Release</abbr></th>
+                        <th><abbr>Terminating</abbr></th>
+                      </tr>
+                    </thead>
+                    {{range .Todos}}
+                       <tbody>
+                        <tr>
+                        <td><a target="_blank" href="{{.UserPanel}}">{{.UserPanels}}...</a></td>
+                        <td><font color="{{ .TradeStatusColor}}">{{ .Tradestatus}}</font></td>
+                        <td>{{ .Empfname}}</td>
+                        <td>{{ .Empfadresse}}</td>
+                        <td>{{ .Zahlpf}}</td>
+                        <td><a target="_blank" href="{{ .Ubfrei}}">Release</a></td>
+                        <td><a target="_blank" href="{{ .Ubfrei2}}">Terminating</a></td>
+                       </tr>
+                    </tbody>
+                    {{end}}
+
+                  </table>
+                  <font color="green">{{.Empty}}</font>
+                </div>
+          </div>
+    </div>
+  </section>
+  </body>
+</html>

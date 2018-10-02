@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/slate/bulmaswatch.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Escrow Service</title>
+  </head>
+  <body>
+  <section class="section">
+    <div class="container is-fluid">
+      <h1 class="title">
+        Escrow Service
+      </h1>
+      <img src="/logo.png" alt="" style="width:auto;">
+      <p class="subtitle">
+        Powered by <strong>blockchain.info</strong>!
+      </p>
+	  <div class="columns is-mobile is-multiline">
+<div class="column is-two-thirds">
+  
+<div class="notification is-info">
+  Here the debtor can release the escrow so that the Bitcoin amount is paid out to the payment recipient.
+  Furthermore, the escrow can be escalated if the escrow is not to be released, e.g. if the goods did not comply with the description.
+</div>
+  <form action="/ub/release/final" method="POST" id="form1">
+  <input type="hidden" name="curl" value="{{ .CURL}}">
+</form>
+    </div>
+  </div>
+  <div class="field is-grouped">
+      <p class="control">
+          <button class="button is-success is-medium" type="submit" form="form1" name= "be" value="true">
+          Release
+        </button> 
+      </p>
+      <p class="control">
+          <button class="button is-danger is-small" type="submit" form="form1" name= "es" value="true">
+          Escalation
+        </button> 
+      </p>
+    </div>
+  </section>
+  </body>
+</html>
