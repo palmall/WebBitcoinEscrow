@@ -114,17 +114,59 @@ func hashthis(password string) string {
 
 //returns new generated BTC adress
 func getNewAdressBTC(label string, UID string, pwd string) string {
-	return "1FfmbHfnpaZjKFvyi1okTjJJusN455paPH"
+	response, err := http.Get("http://localhost:3000/merchant/" + UID +
+		"/new_address?password=" + pwd + "&label=" + label)
+	if err != nil {
+		return "False"
+	}
+	defer response.Body.Close()
+	contents, err := ioutil.ReadAll(response.Body)
+	if err != nil {
+		return "False"
+	}
+	value := gjson.Get(string(contents), "address")
+	return value.String()
 }
 
 //returns converted satoshi to btc of adress
 func getBalanceBTC(adress string, UID string, pwd string) string {
-	return "0.12"
+	response, err := http.Get("http://localhost:3000/merchant/" + UID +
+		"/address_balance?password=" + pwd + "&address=" + adress)
+	if err != nil {
+		return "False"
+	}
+	defer response.Body.Close()
+	contents, err := ioutil.ReadAll(response.Body)
+	if err != nil {
+		return "False"
+	}
+	value := gjson.Get(string(contents), "balance")
+	bf, _ := strconv.ParseFloat(value.String(), 64)
+	bff := 0.00000001 * bf
+	bfff := strconv.FormatFloat(bff, 'f', 8, 64)
+	return bfff
 }
 
 //sends satoshi to btc adress
 func payAdressBTC(UID string, pwd string, outAdr string, amount string) string {
-	return "True"
+	bf, _ := strconv.ParseFloat(amount, 64)
+	bff := int(bf * 100000000)
+	bfff := strconv.Itoa(bff)
+	url := "http://localhost:3000/merchant/" + UID + "/payment?password=" + pwd + "&to=" + outAdr + "&amount=" + bfff
+	response, err := http.Get(url)
+	if err != nil {
+		return "False"
+	}
+	defer response.Body.Close()
+	contents, err := ioutil.ReadAll(response.Body)
+	if err != nil {
+		return "False"
+	}
+	suc := gjson.Get(string(contents), "success").Bool()
+	if suc == true {
+		return "True"
+	}
+	return "False"
 }
 
 //Render executes the template and returns it
